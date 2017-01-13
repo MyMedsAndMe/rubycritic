@@ -77,7 +77,7 @@ module RubyCritic
       def compare_threshold
         return unless mark_build_fail?
         print("Threshold: #{Config.threshold_score}\n")
-        print("Difference: #{(Config.base_branch_score - Config.feature_branch_score).abs}\n")
+        print("Difference: #{(Config.base_branch_score - Config.feature_branch_score)}\n")
         abort('The score difference between the two branches is over the threshold.')
       end
 
@@ -86,7 +86,7 @@ module RubyCritic
       end
 
       def threshold_reached?
-        (Config.base_branch_score - Config.feature_branch_score).abs > Config.threshold_score
+        (Config.base_branch_score - Config.feature_branch_score) > Config.threshold_score
       end
 
       def branch_directory(branch)
