@@ -40,7 +40,7 @@ module RubyCritic
       end
 
       def self.uncommitted_changes?
-        `git ls-files --other --exclude-standard --directory`.empty? && `git status --porcelain`.empty?
+        `git status --porcelain -uno`.empty?
       end
 
       def self.modified_files
